@@ -5,7 +5,6 @@ on: [push]
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
-
     steps:
       - name: Echo a string
         run: echo "Hello world"
@@ -14,3 +13,19 @@ jobs:
         run: |
           node -v
           npm -v
+
+  parallel-job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: View macOS version
+        run: sw_vers
+
+  dependent-job:
+    runs-on: windows-latest
+    needs: run-shell-command
+    steps:
+      - name: Echo a string
+        run: Write-Output "Windows string"
+
+      - name: Error setup
+        run: doesnotexist
