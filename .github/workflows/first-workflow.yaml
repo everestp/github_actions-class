@@ -28,4 +28,4 @@ jobs:
         run: Write-Output "Windows string"
 
       - name: Error setup
-        run: doesnotexist
+        run: doesnotexists
