@@ -27,5 +27,5 @@ jobs:
       - name: Echo a string
         run: Write-Output "Windows string"
 
-      - name: Error setup
-        run: doesnotexists
+      - name: Force failure (intentional)
+        run: exit 1
